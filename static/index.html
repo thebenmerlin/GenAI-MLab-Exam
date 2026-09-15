@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0d12" />
+    <title>PaperLens — Research chat</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="PaperLens home">
+          <span class="brand-symbol" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 3h11l3 3v15H5z" stroke="currentColor" stroke-width="1.8"/><path d="M16 3v4h4M8 11h8M8 15h6" stroke="currentColor" stroke-width="1.8"/></svg>
+          </span>
+          <span><strong>PaperLens</strong><small>RESEARCH CHAT</small></span>
+        </a>
+        <div class="top-status"><span class="status-dot"></span> LOCAL SESSION · READY</div>
+      </header>
+
+      <main class="workspace">
+        <section id="landing" class="landing">
+          <p class="eyebrow">DOCUMENT INTELLIGENCE / 01</p>
+          <h1>Interrogate the<br /><span>evidence.</span></h1>
+          <p class="landing-copy">Upload a research paper. PaperLens retrieves the relevant passages, then answers with traceable source evidence.</p>
+
+          <label id="drop-zone" class="drop-zone" for="file-input">
+            <span class="drop-symbol" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 16V4m0 0-4 4m4-4 4 4M4 15v5h16v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg>
+            </span>
+            <span class="drop-copy"><strong>LOAD RESEARCH DOCUMENT</strong><small>PDF · DOCX · TXT · UP TO 25 MB</small></span>
+            <span class="file-name" id="file-name">NO FILE SELECTED</span>
+            <input id="file-input" type="file" accept=".pdf,.docx,.txt" />
+          </label>
+          <p id="upload-status" class="upload-status" role="status">TEXT-BASED PDFS PRESERVE PAGE REFERENCES</p>
+        </section>
+
+        <section id="chat-view" class="chat-view" hidden>
+          <div class="document-bar">
+            <div class="document-data">
+              <span class="document-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 3h11l3 3v15H5zM16 3v4h4M8 11h8M8 15h5" stroke="currentColor" stroke-width="1.7"/></svg></span>
+              <div><small>ACTIVE PAPER</small><strong id="active-filename"></strong><span id="chunk-count"></span></div>
+            </div>
+            <button id="replace-button" class="button button-quiet" type="button">REPLACE PAPER</button>
+          </div>
+
+          <div id="messages" class="messages" aria-live="polite"></div>
+
+          <form id="question-form" class="composer">
+            <label class="sr-only" for="question-input">Ask a question about the active paper</label>
+            <textarea id="question-input" rows="1" maxlength="2000" placeholder="Ask a question about this paper..." required></textarea>
+            <button class="send-button" type="submit" aria-label="Send question">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h13M14 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+            </button>
+          </form>
+          <p class="composer-note">RESPONSES ARE CONSTRAINED TO RETRIEVED DOCUMENT EVIDENCE.</p>
+        </section>
+      </main>
+    </div>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
